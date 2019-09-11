@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 20:31:55 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/11 14:08:15 by qlaurenc         ###   ########.fr       */
+/*   Created: 2019/09/11 15:42:14 by qlaurenc          #+#    #+#             */
+/*   Updated: 2019/09/11 15:43:00 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <string.h>
-
-void	*ft_memset(void *b, int c, size_t len)
+int	ft_isupper(int c)
 {
-	unsigned char	*str;
-
-	str = (unsigned char *)b;
-	while (len > 0)
+	if (c >= 65 && c <= 90)
+		return (1);
+	else
 	{
-		*str = (unsigned char)c;
-		len--;
-		str++;
+		return (0);
 	}
-	return (b);
 }
