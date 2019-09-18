@@ -6,7 +6,7 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 18:01:38 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/18 16:29:50 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/18 20:10:10 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,12 @@ char	*ft_strdup(const char *s1);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t	ft_strnlen(const char *s, size_t maxlen);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+void	ft_memdel(void **ap);
+void	ft_strdel(char **as);
+char	*ft_strnew(size_t size);
+void	ft_striter(char *s, void (*f)(char *));
 
 #endif

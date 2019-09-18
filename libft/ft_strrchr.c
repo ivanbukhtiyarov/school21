@@ -1,46 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/12 14:45:34 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/18 19:10:24 by qlaurenc         ###   ########.fr       */
+/*   Created: 2019/09/18 18:09:36 by qlaurenc          #+#    #+#             */
+/*   Updated: 2019/09/18 18:25:59 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
-	char	*d;
-	char	*s;
-	size_t	i;
+	size_t len;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (dst == NULL && src == NULL)
-		return (dst);
-	i = 0;
-	if (s == d)
-		return (dst);
-	if (s < d)
+	len = (int)(ft_strlen(s) + 1);
+	while (len--)
 	{
-		i = 1;
-		while (i <= len)
-		{
-			d[len - i] = s[len - i];
-			len--;
-		}
+		if (s[len] == (char)c)
+			return ((char*)(s + len));
 	}
-	else
-	{
-		while (i < len)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	}
-	return (dst);
+	return (NULL);
 }

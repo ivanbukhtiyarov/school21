@@ -1,46 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/12 14:45:34 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/18 19:10:24 by qlaurenc         ###   ########.fr       */
+/*   Created: 2019/09/18 20:04:33 by qlaurenc          #+#    #+#             */
+/*   Updated: 2019/09/18 20:11:04 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	char	*d;
-	char	*s;
-	size_t	i;
+	size_t i;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (dst == NULL && src == NULL)
-		return (dst);
 	i = 0;
-	if (s == d)
-		return (dst);
-	if (s < d)
+	if (!s)
+		return ;
+	while (s[i])
 	{
-		i = 1;
-		while (i <= len)
-		{
-			d[len - i] = s[len - i];
-			len--;
-		}
+		f(&s[i]);
+		i++;
 	}
-	else
-	{
-		while (i < len)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	}
-	return (dst);
 }
