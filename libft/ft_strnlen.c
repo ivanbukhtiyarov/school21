@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/06 20:43:35 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/18 13:20:42 by qlaurenc         ###   ########.fr       */
+/*   Created: 2019/09/18 16:06:15 by qlaurenc          #+#    #+#             */
+/*   Updated: 2019/09/18 16:48:39 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strnlen(const char *s, size_t maxlen)
 {
-	size_t i;
+	size_t len;
 
-	i = 0;
-	while (s[i])
+	len = 0;
+	while (len < maxlen)
 	{
-		i++;
+		if (!*s)
+			break ;
+		s++;
+		len++;
 	}
-	return (i);
+	return (len);
 }
