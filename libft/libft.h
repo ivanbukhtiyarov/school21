@@ -6,7 +6,7 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 18:01:38 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/18 20:10:10 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/20 15:56:28 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 char	*ft_strcat(char *dest, char *src);
-int     ft_strcmp(unsigned char *s1,unsigned char *s2);
+int     ft_strcmp(const char *s1, const char *s2);
 char	*ft_strcpy(char *dest, char *src);
 size_t	ft_strlen(const char *s);
 char	*ft_strncat(char *dest, char *src, int nb);
-int		ft_strncmp(unsigned char *s1, unsigned char *s2, unsigned int n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	*ft_strstr(char *str, char *to_find);
 void	*ft_memset(void *b, int c, size_t len);
@@ -50,5 +50,7 @@ void	ft_memdel(void **ap);
 void	ft_strdel(char **as);
 char	*ft_strnew(size_t size);
 void	ft_striter(char *s, void (*f)(char *));
+int		ft_strequ(char const *s1, char const *s2);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
