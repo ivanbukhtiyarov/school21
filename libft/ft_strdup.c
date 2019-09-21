@@ -6,7 +6,7 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 13:16:41 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/18 13:46:41 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/21 21:41:23 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char	*ft_strdup(const char *s1)
 		return (NULL);
 	}
 	i = 0;
-
 	while (i < ft_strlen(s1))
 	{
 		str[i] = s1[i];

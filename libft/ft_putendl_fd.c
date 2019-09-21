@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 16:18:45 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/21 21:16:44 by qlaurenc         ###   ########.fr       */
+/*   Created: 2019/09/21 18:39:03 by qlaurenc          #+#    #+#             */
+/*   Updated: 2019/09/21 19:14:38 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t			ft_strlcat(char *dst, const char *src, size_t size)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	size_t		i;
-	size_t		dstlength;
-	size_t		srclength;
+	size_t i;
 
 	i = 0;
-	dstlength = ft_strlen(dst);
-	srclength = ft_strlen(src);
-	if (size <= dstlength)
-		return (srclength + size);
-	while ((dst[i] != '\0') && i < (size - 1))
-		i++;
-	while (*src && i < (size - 1))
+	if (!s)
+		return ;
+	while (s[i])
 	{
-		dst[i] = *src;
+		ft_putchar_fd(s[i], fd);
 		i++;
-		src++;
 	}
-	dst[i] = '\0';
-	return (dstlength + srclength);
+	ft_putchar_fd('\n', fd);
 }

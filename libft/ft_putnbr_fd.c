@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 16:18:45 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/21 21:16:44 by qlaurenc         ###   ########.fr       */
+/*   Created: 2019/09/21 18:42:40 by qlaurenc          #+#    #+#             */
+/*   Updated: 2019/09/21 19:09:38 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t			ft_strlcat(char *dst, const char *src, size_t size)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	size_t		i;
-	size_t		dstlength;
-	size_t		srclength;
+	int		copy;
 
-	i = 0;
-	dstlength = ft_strlen(dst);
-	srclength = ft_strlen(src);
-	if (size <= dstlength)
-		return (srclength + size);
-	while ((dst[i] != '\0') && i < (size - 1))
-		i++;
-	while (*src && i < (size - 1))
+	copy = nb;
+	if (nb < 0)
 	{
-		dst[i] = *src;
-		i++;
-		src++;
+		if (nb == -2147483647 - 1)
+		{
+			ft_putchar_fd('-', fd);
+			ft_putchar_fd('2', fd);
+			ft_putnbr_fd(147483648, fd);
+			return ;
+		}
+		ft_putchar_fd('-', fd);
+		nb *= -1;
 	}
-	dst[i] = '\0';
-	return (dstlength + srclength);
+	if (nb < 10)
+		ft_putchar_fd('0' + nb, fd);
+	else
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putchar_fd('0' + (nb % 10), fd);
+	}
 }

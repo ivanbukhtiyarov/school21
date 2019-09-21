@@ -6,7 +6,7 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 16:43:47 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/20 19:09:15 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/21 21:51:58 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static size_t	ft_count_last_s(char const *s)
 	return (n);
 }
 
-char		*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
 	char	*trimed;
 	size_t	e_s;
@@ -54,4 +54,3 @@ char		*ft_strtrim(char const *s)
 	trimed[i] = '\0';
 	return (trimed);
 }
-

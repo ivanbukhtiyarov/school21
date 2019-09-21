@@ -3,38 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qlaurenc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 15:51:19 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/08/06 18:08:45 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/21 21:10:19 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int		ft_atoi(const char *str)
 {
-	int i;
-	int nb;
-	int sgn;
+	long long int	sign;
+	int				nump;
+	long long int	number;
 
-	i = 0;
-	nb = 0;
-	sgn = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
-			str[i] == '\f' || str[i] == '\r' || str[i] == '\v')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	number = 0;
+	sign = 1;
+	nump = 0;
+	if (*str == '\0')
+		return (0);
+	while (((str[nump] >= 9) && (str[nump] <= 13)) || (str[nump] == 32))
+		nump = nump + 1;
+	if ((str[nump] == '-') || (str[nump] == '+'))
 	{
-		if (str[i] == '-')
-			sgn = -1;
-		i++;
+		if ((str[nump + 1] < '0') && (str[nump + 1] > '9'))
+			return (0);
+		if (str[nump] == '-')
+			sign = -1;
+		nump = nump + 1;
 	}
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
-	{
-		nb = nb * 10 + str[i] - 48;
-		i++;
-	}
-	nb *= sgn;
-	return (nb);
+	while ((str[nump] >= '0') && (str[nump] <= '9'))
+		number = 10 * number + (long long int)(str[nump++] - '0');
+	if (number > number * 10)
+		return (sign == -1 ? 0 : -1);
+	return (sign * number);
 }

@@ -6,7 +6,7 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 20:58:08 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/20 16:10:06 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/21 21:46:45 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	join[j] = '\0';
 	return (join);
 }
-
