@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qlaurenc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 20:19:05 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/22 18:42:10 by qlaurenc         ###   ########.fr       */
+/*   Created: 2019/08/06 13:53:58 by qlaurenc          #+#    #+#             */
+/*   Updated: 2019/08/06 13:55:09 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isdigit(int c)
+int	ft_str_is_numeric(char *str)
 {
-	return (c >= '0' && c <= '9' ? 1 : 0);
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (0);
+		i++;
+	}
+	return (1);
 }

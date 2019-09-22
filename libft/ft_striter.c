@@ -6,7 +6,7 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 20:04:33 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/18 20:11:04 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/22 19:12:57 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_striter(char *s, void (*f)(char *))
 	size_t i;
 
 	i = 0;
-	if (!s)
+	if (!s || !f)
 		return ;
 	while (s[i])
 	{

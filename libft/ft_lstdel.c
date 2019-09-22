@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 20:57:03 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/22 16:27:19 by qlaurenc         ###   ########.fr       */
+/*   Created: 2019/09/22 16:34:15 by qlaurenc          #+#    #+#             */
+/*   Updated: 2019/09/22 16:46:26 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	t_list *node;
+	t_list *lst;
+	t_list *next;
 
-	if (!(node = (t_list*)malloc(sizeof(t_list))))
-		return (NULL);
-	if (content != NULL)
+	lst = *alst;
+	while (lst)
 	{
-		node->content = malloc(content_size);
-		if (node->content == NULL)
-			return (NULL);
-		ft_memcpy((node->content), content, content_size);
-		node->content_size = content_size;
+		next = lst->next;
+		del(lst->content, lst->content_size);
+		free(lst);
+		lst = next;
 	}
-	else
-	{
-		node->content = NULL;
-		node->content_size = 0;
-	}
-	node->next = NULL;
-	return (node);
+	*alst = NULL;
 }

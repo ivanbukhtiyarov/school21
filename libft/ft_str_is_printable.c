@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 20:19:05 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/22 18:42:10 by qlaurenc         ###   ########.fr       */
+/*   Created: 2019/08/06 14:40:19 by qlaurenc          #+#    #+#             */
+/*   Updated: 2019/09/22 19:25:34 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isdigit(int c)
+int	ft_str_is_printable(char *str)
 {
-	return (c >= '0' && c <= '9' ? 1 : 0);
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < ' ' || str[i] > '~')
+			return (0);
+		i++;
+	}
+	return (1);
 }
