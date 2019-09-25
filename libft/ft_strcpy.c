@@ -6,13 +6,13 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 18:15:22 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/10 20:49:39 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/25 13:04:24 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *dest, const char *src)
 {
 	int i;
 

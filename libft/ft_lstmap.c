@@ -6,7 +6,7 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 16:56:22 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/22 17:31:58 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/24 17:00:41 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list *head;
 	t_list *list;
 
-	if (!lst)
+	if (!lst || !f)
 		return (NULL);
 	list = f(lst);
 	head = list;

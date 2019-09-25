@@ -6,7 +6,7 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 13:16:41 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/21 21:41:23 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/24 15:32:50 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,12 @@
 
 char	*ft_strdup(const char *s1)
 {
-	size_t	i;
-	char	*str;
+	size_t	len;
+	char	*copy;
 
-	str = (char*)malloc(ft_strlen(s1) + 1);
-	if (!str)
-	{
+	len = ft_strlen(s1) + 1;
+	if (!(copy = malloc(sizeof(char) * len)))
 		return (NULL);
-	}
-	i = 0;
-	while (i < ft_strlen(s1))
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	ft_memcpy(copy, s1, len);
+	return (copy);
 }

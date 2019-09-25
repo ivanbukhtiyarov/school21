@@ -6,16 +6,16 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 15:58:37 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/10 20:41:21 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/25 16:02:25 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *dest, char *src, int nb)
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	i = 0;
 	j = 0;
@@ -23,7 +23,7 @@ char	*ft_strncat(char *dest, char *src, int nb)
 	{
 		i++;
 	}
-	while (src[j] != '\0' && j < nb)
+	while (src[j] != '\0' && j < n)
 	{
 		dest[i + j] = src[j];
 		j++;

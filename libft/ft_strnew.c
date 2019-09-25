@@ -6,7 +6,7 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 19:34:55 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/19 19:21:32 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/24 17:17:29 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnew(size_t size)
 	size_t	i;
 
 	i = 0;
+	if (size + 1 < size)
+		return (NULL);
 	area = (char*)malloc(sizeof(char) * (size + 1));
 	if (!area)
 		return (NULL);

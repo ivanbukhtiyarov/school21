@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup_safe.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/25 16:08:38 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/25 16:10:10 by qlaurenc         ###   ########.fr       */
+/*   Created: 2019/09/24 17:58:36 by qlaurenc          #+#    #+#             */
+/*   Updated: 2019/09/24 17:59:23 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char	*ft_strdup_safe(const char *s1)
 {
-	int i;
-	int j;
+	size_t	len;
+	char	*copy;
 
-	if (*needle == '\0')
-		return ((char*)haystack);
-	i = 0;
-	while (haystack[i] != '\0')
-	{
-		j = 0;
-		while (haystack[i + j] != '\0' && needle[j] != '\0'
-				&& haystack[i + j] == needle[j])
-		{
-			if (needle[j + 1] == '\0')
-			{
-				return ((char*)(haystack + i));
-			}
-			j++;
-		}
-		i++;
-	}
-	return (NULL);
+	if (!s1)
+		return (NULL);
+	len = ft_strlen(s1) + 1;
+	if (!(copy = malloc(sizeof(char) * len)))
+		return (NULL);
+	ft_memcpy(copy, s1, len);
+	return (copy);
 }
