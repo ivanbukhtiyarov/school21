@@ -6,7 +6,7 @@
 /*   By: qlaurenc <qlaurenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 19:12:29 by qlaurenc          #+#    #+#             */
-/*   Updated: 2019/09/24 17:05:12 by qlaurenc         ###   ########.fr       */
+/*   Updated: 2019/09/25 18:33:15 by qlaurenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,23 @@ static size_t	ft_wl(const char *s, const char d)
 	return (len);
 }
 
+static void		ft_tab_free(char **tab, size_t i)
+{
+	while (i)
+	{
+		i--;
+		free(tab[i]);
+	}
+	free(tab);
+	tab = NULL;
+}
+
 static char		**ft_fill(size_t *i, size_t *j, char const *s, char c)
 {
 	char	**r;
 	size_t	k;
 
-	if (!s)
-		return (NULL);
-	if (!(r = (char**)malloc(sizeof(char*) * (1 + ft_count(s, c)))))
+	if (!s || !(r = (char**)malloc(sizeof(char*) * (1 + ft_count(s, c)))))
 		return (NULL);
 	while (s[*i] == c && s[*i])
 		(*i)++;
@@ -64,15 +73,17 @@ static char		**ft_fill(size_t *i, size_t *j, char const *s, char c)
 	{
 		if (s[*i] != c)
 		{
-			r[*j] = (char*)malloc(sizeof(char) * (ft_wl(&(s[*i]), c) + 1));
-			if (!r[*j])
+			if (!(r[*j] = (char*)malloc(sizeof(char)
+			* (ft_wl(&(s[*i]), c) + 1))))
+			{
+				ft_tab_free(r, *j);
 				return (NULL);
+			}
 			k = -1;
 			while (++(k) < ft_wl(&(s[*i]), c))
 				r[*j][k] = s[*i + k];
-			r[*j][k] = '\0';
+			r[(*j)++][k] = '\0';
 			*i = *i + ft_wl(&(s[*i]), c) - 1;
-			(*j)++;
 		}
 	}
 	return (r);
